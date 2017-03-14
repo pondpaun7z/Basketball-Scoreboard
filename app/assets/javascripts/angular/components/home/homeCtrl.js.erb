@@ -1,0 +1,36 @@
+(function() {
+  'use strict';
+  angular.module('app.home', [
+  ])
+  .controller('homeCtrl', ['$rootScope', function($rootScope) {
+    $rootScope.menu = ""
+    var ctrl = this
+
+    ctrl.scoreTeam1 = 0
+    ctrl.scoreTeam2 = 0
+    ctrl.teamName1 = "SET TEAM NAME 1"
+    ctrl.teamName2 = "SET TEAM NAME 2"
+    
+    ctrl.addScore = function(team, score) {
+      switch(team) {
+        case 1:
+          ctrl.scoreTeam1 += score
+          break;
+        case 2:
+          ctrl.scoreTeam2 += score
+          break;
+      }
+    }
+
+    ctrl.resetScore = function(team) {
+      switch(team) {
+        case 1:
+          ctrl.scoreTeam1 = 0
+          break;
+        case 2:
+          ctrl.scoreTeam2 = 0
+          break;
+      }
+    }
+  }]);
+})();
