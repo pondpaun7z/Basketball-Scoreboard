@@ -19,4 +19,7 @@
 //= require angular/app.module
 //= require angular/app.assets
 //= require angular-xeditable/dist/js/xeditable.min
+//= require humanize-duration
+//= require moment
+//= require angular-timer/dist/angular-timer.min
 //= require_tree .

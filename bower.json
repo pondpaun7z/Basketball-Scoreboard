@@ -10,6 +10,7 @@
     "angular-ui-router.stateHelper": "",
     "ocLazyLoad": "",
     "bulma": "",
-    "angular-xeditable ": ""
+    "angular-xeditable ": "",
+    "angular-timer": ""
   }
 }
