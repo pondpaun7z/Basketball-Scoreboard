@@ -93,8 +93,15 @@
       })
     }
 
-    ctrl.resetFoul = function(foul) {
-      foul = setDefaultFoul()
+    ctrl.resetFoul = function(team) {
+      switch(team) {
+        case 1:
+          ctrl.fouls1 = setDefaultFoul();
+          break;
+        case 2:
+          ctrl.fouls2 = setDefaultFoul();
+          break;
+      }
     }
 
     ctrl.resetAll = function() {
