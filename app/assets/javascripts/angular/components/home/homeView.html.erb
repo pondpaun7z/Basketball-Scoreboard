@@ -8,6 +8,7 @@
         <timer  autostart="false" countdown="600" max-time-unit="'minute'" interval="1000">{{mminutes}} minute{{minutesS}}, {{sseconds}} second{{secondsS}}</timer>
         <br>
         <a class="button is-outlined is-warning is-medium" ng-click="home.timerToggle()">{{home.timeStatus}}</a>
+        <a class="button is-outlined is-danger is-medium" ng-click="home.timerReset()">RESET</a>
       </h2>
     </div>
   </div>

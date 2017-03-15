@@ -46,6 +46,10 @@
       }
       ctrl.timerRunning = !ctrl.timerRunning;
     };
+
+    ctrl.timerReset = function (){
+      $scope.$broadcast('timer-reset');
+    };
     
     ctrl.nextRound = function() {
       if (ctrl.round >= 0 && ctrl.round < 4) {
@@ -61,6 +65,8 @@
 
     ctrl.resetRound = function() {
       ctrl.round = 1
+      ctrl.timerRunning = false
+      ctrl.timeStatus = "Start"
     }
 
   }]);
