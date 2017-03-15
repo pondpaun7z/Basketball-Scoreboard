@@ -30,7 +30,7 @@
       FOUL <br>
       <i ng-repeat="foul in home.fouls1" class="item-foul fa fa-{{foul.class}} {{foul.color}}"  ng-click="home.trickFoul(home.fouls1, $index)" aria-hidden="true"></i>
       <br>
-      <a class="button is-outlined is-danger is-small" ng-click="home.resetFoul(home.foul1)">RESET</a>
+      <a class="button is-outlined is-danger is-small" ng-click="home.resetFoul(home.fouls1)">RESET</a>
     </h3>
   </div>
   <div class="col s4 container-round">
@@ -66,7 +66,7 @@
       FOUL <br>
       <i ng-repeat="foul in home.fouls2" class="item-foul fa fa-{{foul.class}} {{foul.color}}"  ng-click="home.trickFoul(home.fouls2, $index)" aria-hidden="true"></i>
       <br>
-      <a class="button is-outlined is-danger is-small" ng-click="home.resetFoul(home.foul2)">RESET</a>
+      <a class="button is-outlined is-danger is-small" ng-click="home.resetFoul(home.fouls2)">RESET</a>
     </h3>
   </div>
 </div>

@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html ng-app="app">
   <head>
-    <title>Basketball Score Board</title>
+    <title>Merchant Marine Training Centre Score Board</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <meta property="fb:app_id" content="171443830035008" />
+    <meta property="og:url" content="http://basketball-scoreboard.herokuapp.com" />
+    <meta property="og:type" content="sport" />
+    <meta property="og:title" content="Basketball Scoreboard" />
+    <meta property="og:description" content="ช่วยในการจับเวลาการแข่งขัน ป้ายคะแนน แล้วการฟาวล์ต่างๆ ของกีฬาบาสเกตบอล" />
+    <meta property="og:image" content="<%= image_url("basketball-cover.png") %>" />
+
+    <META NAME="Title" CONTENT="Basketball Scoreboard">
+    <meta NAME='AUTHOR' CONTENT='Theeraphat Jantakat'>
+    <META NAME="Keywords" CONTENT="บาสเกตบอล,ป้ายคะแนน,จับเวลา,แข่งขัน">
+    <META NAME="Description" CONTENT="ช่วยในการจับเวลาการแข่งขัน ป้ายคะแนน แล้วการฟาวล์ต่างๆ ของกีฬาบาสเกตบอล">
+    <META NAME="Subject" CONTENT="ป้าคะแนน บาสเกตบอล">
+    <META NAME="Language" CONTENT="Thailand">
+    <META NAME="Robots" CONTENT="INDEX,FOLLOW">
   </head>
 
   <body ng-controller="mainCtrl as main">
