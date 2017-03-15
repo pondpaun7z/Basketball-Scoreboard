@@ -2,15 +2,17 @@
   'use strict';
   angular.module('app.home', [
   ])
-  .controller('homeCtrl', ['$rootScope', function($rootScope) {
+  .controller('homeCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
     $rootScope.menu = ""
     var ctrl = this
 
     ctrl.scoreTeam1 = 0
     ctrl.scoreTeam2 = 0
+    ctrl.round = 1
     ctrl.teamName1 = "SET TEAM NAME 1"
     ctrl.teamName2 = "SET TEAM NAME 2"
-    ctrl.isStart = false
+    ctrl.timeStatus = "Start"
+    ctrl.timerRunning = false;
     
     ctrl.addScore = function(team, score) {
       switch(team) {
@@ -33,5 +35,33 @@
           break;
       }
     }
+
+    ctrl.timerToggle = function (){
+      if (ctrl.timerRunning) {
+        $scope.$broadcast('timer-stop');
+        ctrl.timeStatus = "Resume"
+      } else {
+        $scope.$broadcast('timer-start');
+        ctrl.timeStatus = "Stop"
+      }
+      ctrl.timerRunning = !ctrl.timerRunning;
+    };
+    
+    ctrl.nextRound = function() {
+      if (ctrl.round >= 0 && ctrl.round < 4) {
+        ctrl.round += 1
+      }
+    }
+
+    ctrl.prevRound = function() {
+      if (ctrl.round > 1){
+        ctrl.round -= 1
+      }
+    }
+
+    ctrl.resetRound = function() {
+      ctrl.round = 1
+    }
+
   }]);
 })();
