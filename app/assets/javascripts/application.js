@@ -22,4 +22,5 @@
 //= require humanize-duration
 //= require moment
 //= require angular-timer/dist/angular-timer.min
+//= require angular-fullscreen/src/angular-fullscreen
 //= require_tree .

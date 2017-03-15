@@ -2,7 +2,7 @@
   'use strict';
   angular.module('app.home', [
   ])
-  .controller('homeCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
+  .controller('homeCtrl', ['$rootScope', '$scope', 'Fullscreen', function($rootScope, $scope, Fullscreen) {
     $rootScope.menu = ""
     var ctrl = this
 
@@ -109,6 +109,10 @@
       ctrl.fouls1 = setDefaultFoul();
       ctrl.fouls2 = setDefaultFoul();
       ctrl.timerReset()
+    }
+
+    ctrl.fullscreen = function() {
+      Fullscreen.all();
     }
 
 
