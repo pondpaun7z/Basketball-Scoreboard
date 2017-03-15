@@ -13,6 +13,19 @@
     ctrl.teamName2 = "SET TEAM NAME 2"
     ctrl.timeStatus = "Start"
     ctrl.timerRunning = false;
+
+    ctrl.fouls1 = setDefaultFoul();
+    ctrl.fouls2 = setDefaultFoul();
+
+    function setDefaultFoul() {
+      return [
+        {class: "circle-thin", color: "text-green"},
+        {class: "circle-thin", color: "text-green"},
+        {class: "circle-thin", color: "text-green"},
+        {class: "circle-thin", color: "text-green"},
+        {class: "circle-thin", color: "text-red"},
+      ]
+    }
     
     ctrl.addScore = function(team, score) {
       switch(team) {
@@ -68,6 +81,36 @@
       ctrl.timerRunning = false
       ctrl.timeStatus = "Start"
     }
+
+    ctrl.trickFoul = function(fouls, index) {
+      fouls.forEach(function(value, i) {
+        if (i <= index) {
+          fouls[i].class = "circle"
+        } else {
+          fouls[i].class = "circle-thin"
+        }
+
+      })
+    }
+
+    ctrl.resetFoul = function(foul) {
+      foul = setDefaultFoul()
+    }
+
+    ctrl.resetAll = function() {
+      ctrl.scoreTeam1 = 0
+      ctrl.scoreTeam2 = 0
+      ctrl.round = 1
+      ctrl.teamName1 = "SET TEAM NAME 1"
+      ctrl.teamName2 = "SET TEAM NAME 2"
+      ctrl.timeStatus = "Start"
+      ctrl.timerRunning = false;
+
+      ctrl.fouls1 = setDefaultFoul();
+      ctrl.fouls2 = setDefaultFoul();
+      ctrl.timerReset()
+    }
+
 
   }]);
 })();
