@@ -1,0 +1,66 @@
+<br>
+<h1 class="title is-2">
+  <span editable-text="teamName">{{teamName}}</span>
+</h1>
+<h1 class="title is-1 score">{{scoreTeam}}</h1>
+<a class="button is-outlined is-primary is-medium" ng-click="addScore(1)">+1</a>
+<a class="button is-outlined is-primary is-medium" ng-click="addScore(2)">+2</a>
+<a class="button is-outlined is-primary is-medium" ng-click="addScore(3)">+3</a>
+<a class="button is-outlined is-danger is-medium" ng-click="resetScore(1)">RESET</a>
+<br><br>
+<h3 class="title is-3">
+  <i class="fa fa-users"></i> FOUL TEAM
+  <br>
+  <i ng-repeat="foul in fouls" class="item-foul fa fa-{{foul.class}} {{foul.color}}"  ng-click="trickFoul(fouls, $index)" aria-hidden="true"></i>
+  <br>
+  <a class="button is-outlined is-danger" ng-click="resetFoul()">RESET</a>
+</h3>
+
+<h3 class="title is-3">
+  <i class="fa fa-user"></i> Foul Persons
+  <ul>
+    <li ng-repeat="person in persons">
+      <p>
+        #{{person.no}} {{person.name}}
+        <i ng-repeat="foul in person.fouls" class="item-foul fa fa-{{foul.class}} {{foul.color}}"  ng-click="trickFoul(person.fouls, $index)" aria-hidden="true"></i>
+        <a class="button is-outlined is-danger" ng-click="resetPersonFoul($index)">
+          <i class="fa fa-refresh"></i>
+        </a>
+        <a class="button is-outlined is-danger" ng-click="deletePerson($index)">
+          <i class="fa fa-trash"></i>
+        </a>
+      </p>
+    </li>
+    <li>
+      <form ng-submit="addPerson(data.person)">
+        <div class="row">
+          <div class="col s3">
+            <div class="field">
+              <p class="control has-icon">
+                <input class="input" type="text" ng-model="data.person.no" placeholder="No.">
+                <span class="icon is-small">
+                  <i class="fa fa-slack" aria-hidden="true"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="col s7">
+            <div class="field">
+              <p class="control has-icon">
+                <input class="input" type="text" ng-model="data.person.name" placeholder="Name">
+                <span class="icon is-small">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="col s2">
+            <button type="submit" class="button is-success">
+              <i class="fa fa-user-plus"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </li>
+  </ul>
+</h3>

@@ -5,7 +5,9 @@
         Merchant Marine Training Centre Score Board
       </h1>
       <h2 class="title is-1">
-        <timer  autostart="false" countdown="600" max-time-unit="'minute'" interval="1000">{{mminutes}} minute{{minutesS}}, {{sseconds}} second{{secondsS}}</timer>
+        <timer  autostart="false" countdown="600" max-time-unit="'minute'" interval="1000">
+          {{mminutes}} minute{{minutesS}}, {{sseconds}} second{{secondsS}}.
+        </timer>
         <br>
         <a class="button is-info is-medium" ng-click="home.timerToggle()">{{home.timeStatus | uppercase}}</a>
         <a class="button is-danger is-medium" ng-click="home.timerReset()">RESET</a>
@@ -16,22 +18,7 @@
 
 <div class="row has-text-centered">
   <div class="col s4">
-    <br>
-    <h1 class="title is-2">
-      <span editable-text="home.teamName1">{{home.teamName1}}</span>
-    </h1>
-    <h1 class="title is-1 score">{{home.scoreTeam1}}</h1>
-    <a class="button is-outlined is-primary is-medium" ng-click="home.addScore(1, 1)">+1</a>
-    <a class="button is-outlined is-primary is-medium" ng-click="home.addScore(1, 2)">+2</a>
-    <a class="button is-outlined is-primary is-medium" ng-click="home.addScore(1, 3)">+3</a>
-    <a class="button is-outlined is-danger is-medium" ng-click="home.resetScore(1)">RESET</a>
-    <br><br>
-    <h3 class="title is-3">
-      FOUL <br>
-      <i ng-repeat="foul in home.fouls1" class="item-foul fa fa-{{foul.class}} {{foul.color}}"  ng-click="home.trickFoul(home.fouls1, $index)" aria-hidden="true"></i>
-      <br>
-      <a class="button is-outlined is-danger is-small" ng-click="home.resetFoul(1)">RESET</a>
-    </h3>
+    <team-directive name="SET TEAM NAME 1"></team-directive>
   </div>
   <div class="col s4 container-round">
     <h1 class="title is-1">ROUND</h1>
@@ -52,37 +39,6 @@
     </a>
   </div>
   <div class="col s4">
-    <br>
-    <h1 class="title is-2">
-      <span editable-text="home.teamName2">{{home.teamName2}}</span>
-    </h1>
-    <h1 class="title is-1 score">{{home.scoreTeam2}}</h1>
-    <a class="button is-outlined is-primary is-medium" ng-click="home.addScore(2, 1)">+1</a>
-    <a class="button is-outlined is-primary is-medium" ng-click="home.addScore(2, 2)">+2</a>
-    <a class="button is-outlined is-primary is-medium" ng-click="home.addScore(2, 3)">+3</a>
-    <a class="button is-outlined is-danger is-medium" ng-click="home.resetScore(2)">RESET</a>
-    <br><br>
-    <h3 class="title is-3">
-      FOUL <br>
-      <i ng-repeat="foul in home.fouls2" class="item-foul fa fa-{{foul.class}} {{foul.color}}"  ng-click="home.trickFoul(home.fouls2, $index)" aria-hidden="true"></i>
-      <br>
-      <a class="button is-outlined is-danger is-small" ng-click="home.resetFoul(2)">RESET</a>
-    </h3>
+    <team-directive name="SET TEAM NAME 2"></team-directive>
   </div>
 </div>
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Merchant Marine Training Centre Score Board</strong> by <a href="https://www.facebook.com/pondpaunkiku">I'Pondpaun SevenZ</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-      </p>
-      <p>
-        <a class="icon" href="https://github.com/pondpaun7z/Basketball-Scoreboard">
-          <i class="fa fa-github"></i>
-        </a>
-      </p>
-    </div>
-  </div>
-</footer>

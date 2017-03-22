@@ -1,0 +1,71 @@
+(function() {
+  angular.module('app.team.directive', [])
+  .directive('teamDirective', [function() {
+    return {
+      restrict: 'E',
+      scope: {
+        teamName: '@name',
+      },
+      templateUrl: "<%= asset_path('angular/components/shared/team/teamView.html') %>",
+      link: function(scope, elem, attrs) {
+        scope.scoreTeam = 0
+        scope.fouls = setDefaultFoul();
+        scope.data = { person: {}}
+        scope.persons = []
+
+
+        scope.addPerson = function(person) {
+          scope.persons.push({
+            no: person.no,
+            name: person.name,
+            fouls: setDefaultFoul()
+          })
+          scope.data = { person: {}}
+        }
+
+        scope.deletePerson = function(index) {
+          if(confirm("Delete?")) {
+            scope.persons.splice(index, 1)
+          }
+        }
+
+        scope.addScore = function(score) {
+          scope.scoreTeam += score
+        }
+
+        scope.resetScore = function() {
+          scope.scoreTeam = 0
+        }
+
+        scope.trickFoul = function(fouls, index) {
+          fouls.forEach(function(value, i) {
+            if (i <= index) {
+              fouls[i].class = "circle"
+            } else {
+              fouls[i].class = "circle-thin"
+            }
+          })
+        }
+
+        scope.resetFoul = function() {
+          scope.fouls = setDefaultFoul();
+        }
+
+        scope.resetPersonFoul = function(index) {
+          scope.persons[index].fouls = setDefaultFoul();
+        }
+
+        function setDefaultFoul() {
+          return [
+            {class: "circle-thin", color: "text-green"},
+            {class: "circle-thin", color: "text-green"},
+            {class: "circle-thin", color: "text-green"},
+            {class: "circle-thin", color: "text-green"},
+            {class: "circle-thin", color: "text-red"},
+          ]
+        }
+
+      }
+    }
+  }]);
+})();
