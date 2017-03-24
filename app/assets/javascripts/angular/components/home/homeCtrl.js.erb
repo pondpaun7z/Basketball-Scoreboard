@@ -2,7 +2,7 @@
   'use strict';
   angular.module('app.home', [
   ])
-  .controller('homeCtrl', ['$rootScope', '$scope', 'Fullscreen', function($rootScope, $scope, Fullscreen) {
+  .controller('homeCtrl', ['$rootScope', '$scope', 'Fullscreen', '$compile', function($rootScope, $scope, Fullscreen, $compile) {
     $rootScope.menu = ""
     var ctrl = this
 
@@ -44,16 +44,10 @@
     }
 
     ctrl.resetAll = function() {
-      ctrl.scoreTeam1 = 0
-      ctrl.scoreTeam2 = 0
-      ctrl.round = 1
-      ctrl.teamName1 = "SET TEAM NAME 1"
-      ctrl.teamName2 = "SET TEAM NAME 2"
-      ctrl.timeStatus = "Start"
-      ctrl.timerRunning = false;
-
-      ctrl.fouls1 = setDefaultFoul();
-      ctrl.fouls2 = setDefaultFoul();
+      var team = $compile("<team-directive id='team1' name='SET TEAM NAME 1'></team-directive>")( $scope );
+      $('#team1').replaceWith(team)
+      var team = $compile("<team-directive id='team2' name='SET TEAM NAME 2'></team-directive>")( $scope );
+      $('#team2').replaceWith(team)
       ctrl.timerReset()
     }
 
